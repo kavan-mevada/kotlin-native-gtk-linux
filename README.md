@@ -1,4 +1,4 @@
-# kotlinnative-gtk-linux
+# kotlin-native-gtk-linux
 Sample IntelliJ project for GTK+3 using Kotlin/Native
 
 To build use ../gradlew assemble. Do not forget to install GTK3. See bellow.
