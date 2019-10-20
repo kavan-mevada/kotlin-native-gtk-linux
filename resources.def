@@ -1,0 +1,2 @@
+headers = resources.h
+libraryPaths = /run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/resources

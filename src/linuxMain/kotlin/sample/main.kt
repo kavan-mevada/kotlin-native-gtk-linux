@@ -1,61 +1,120 @@
-/*
- * Copyright (c) 2019 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license
- * that can be found in the license/LICENSE.txt file.
- */
-
 package sample
 
-import gtk3.*
-import kotlinx.cinterop.CPointer
-import kotlinx.cinterop.staticCFunction
+import glibresources.*
+import kotlinx.cinterop.*
+import kotlinx.coroutines.*
+import libgtk3.*
+import libgtk3.GConnectFlags
+import libgtk3.G_APPLICATION_FLAGS_NONE
+import libgtk3.g_application_run
+import libgtk3.g_object_unref
+import libgtk3.g_signal_connect_data
+import libgtk3.gdouble
+import libgtk3.gpointer
+import libgtk3.gulong
+import platform.posix.sleep
 
 
-fun destroyWidget(widget: CPointer<GtkWidget>?) = gtk_widget_destroy(widget)
-fun quitWindow() = Gtk.main_quit()
-fun buttonOne() = println("Button 1 clicked !")
-fun buttonTwo() = println("Button 2 clicked !")
+fun <F : CFunction<*>> g_signal_connect(obj: CPointer<*>, actionName: String, action: CPointer<F>, data: gpointer? = null, connect_flags: GConnectFlags = 0U): gulong {
+    return g_signal_connect_data(obj.reinterpret(), actionName, action.reinterpret(), data = data, destroy_data = null, connect_flags = connect_flags)
+}
 
-fun activated() = println("Application activated!")
+var progress: gdouble = 0.00
+var progressBar : CPointer<GtkWidget>? = null
+var btStart : CPointer<GtkWidget>? = null
 
+fun incrementProgressBar() {
+    g_print("Inside thread ... ")
+    var i = 0.05
+    while (progress < 1.0) {
+        g_idle_add(staticCFunction(::incrementGtkProgressBar).reinterpret(), null)
+        progress = progress + 0.10
+        sleep(1)
+    }
+    g_print("Thread completed...")
+    g_idle_add(staticCFunction(::resetGtkProgressBar).reinterpret(), null)
+}
 
-fun main(args: Array<String>) {
+fun incrementGtkProgressBar(): Int {
+    gtk_progress_bar_set_fraction ( progressBar!!.reinterpret() , progress ) ;
+    return FALSE
+}
 
-    Gtk.init(args)
-
-    val builder = Builder()
-    builder.add_from_file("builder.ui")
-    val window = builder.get_object<GtkWindow>("window")
-    window?.connect("destroy", staticCFunction(::quitWindow))
-
-    //val app = Application("org.gtk.example", G_APPLICATION_FLAGS_NONE)
-    //val window = Window(app)
-
-    window.default_name("Window Title")
-    window.default_size(800, 300)
-    window.resizable(false)
-
-
-    /* Connect signal handlers to the constructed widgets. */
-    val button1 = builder.get_object<GtkButton>("button1")
-    button1?.connect("clicked", staticCFunction(::buttonOne))
-
-    val button2 = builder.get_object<GtkButton>("button2")
-    button2?.connect("clicked", staticCFunction(::buttonTwo))
-
-    val button3 = builder.get_object<GtkButton>("quit")
-    button3?.connect("clicked", staticCFunction(::quitWindow))
-
-    val button4 = builder.get_object<GtkButton>("destroyWidget")
-    button4?.connect("clicked", staticCFunction(::destroyWidget), window, G_CONNECT_SWAPPED)
-
-
-    window?.show_all()
-    Gtk.main()
-
-//    val status = app?.status(args)
-//    g_object_unref(app)
-//    return status?:Unit
-
+fun resetGtkProgressBar(): Int {
+    gtk_progress_bar_set_fraction (progressBar?.reinterpret(), 0.00)
+    gtk_widget_set_sensitive(btStart, TRUE)
+    return FALSE
 }
 
 
+
+fun startThread(widget: CPointer<GtkWidget>, data: gpointer) {
+    progress = 0.00
+    g_thread_new(null , staticCFunction(::incrementProgressBar).reinterpret(), data)
+    gtk_widget_set_sensitive(widget, FALSE)
+}
+
+
+
+
+
+fun activate(app: CPointer<GtkApplication>?, user_data: gpointer?) {
+    val window = gtk_application_window_new (app)!!
+    gtk_window_set_title (window.reinterpret(), "Window");
+    gtk_window_set_default_size (window.reinterpret(), 200, 200);
+    //gtk_window_set_icon(window.reinterpret(), "/org/gtk/example/icon.png", null)
+
+
+    val grid = gtk_grid_new()
+
+    btStart = gtk_button_new_with_label("Start")
+    progressBar = gtk_progress_bar_new()
+
+    gtk_grid_attach(grid!!.reinterpret(), btStart, 0, 0, 1, 1)
+    gtk_grid_attach(grid!!.reinterpret(), progressBar, 0, 1, 1, 1)
+
+
+
+    val image = gtk_image_new_from_resource("/org/gtk/example/icon.png")
+
+    gtk_container_add (window.reinterpret(), grid)
+
+
+    g_signal_connect(btStart!!.reinterpret<GtkWidget>(), "clicked", staticCFunction(::startThread), progressBar)
+
+    gtk_widget_show (grid)
+    gtk_widget_show (window);
+
+    gtk_widget_show_all (window);
+}
+
+fun gtkMain(args: Array<String>): Int {
+    val app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE)!!
+    g_signal_connect(app, "activate", staticCFunction(::activate))
+    val status = memScoped {
+        g_application_run(app.reinterpret(),
+            args.size, args.map { it.cstr.getPointer(memScope) }.toCValues())
+    }
+    g_object_unref(app)
+    return status
+}
+
+
+fun main(args: Array<String>) {
+    glibresources_get_resource()
+    //main2(args)
+    gtkMain(args)
+}
+
+
+suspend fun sequentialRequests() {
+
+}
+
+fun main2(args: Array<String>) = runBlocking<Unit> {
+    launch(Dispatchers.Unconfined) {
+        println("current thread1")
+        delay(1_000)
+        println("current thread2")
+    }
+}

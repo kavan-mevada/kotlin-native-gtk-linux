@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gtk/example">
+    <file>icon.png</file>
+    <file>GTK.png</file>
+  </gresource>
+</gresources>
