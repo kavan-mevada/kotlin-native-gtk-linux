@@ -68,61 +68,85 @@ fun startThread(widget: CPointer<GtkWidget>, data: gpointer) {
 
 
 
-fun activate(app: CPointer<GtkApplication>?, user_data: gpointer?) {
-    val window = gtk_application_window_new (app)!!
-    gtk_window_set_title (window.reinterpret(), "Window");
-    gtk_window_set_default_size (window.reinterpret(), 200, 200);
-    //gtk_window_set_icon(window.reinterpret(), "/org/gtk/example/icon.png", null)
+fun activate(app: CPointer<GtkApplication>?, builder: CPointer<GtkBuilder>, user_data: gpointer?) {
+
+    val window = gtk_builder_get_object (builder, "window");
 
 
-    val grid = gtk_grid_new()
-
-    val image = gtk_image_new_from_resource("/org/gtk/example/icon.png")
-    btStart = gtk_button_new_with_label("Start")
-    label = gtk_label_new("City Name")
-    progressBar = gtk_progress_bar_new()
-
-    gtk_grid_attach(grid!!.reinterpret(), image, 0, 0, 1, 1)
-    gtk_grid_attach(grid!!.reinterpret(), label, 0, 1, 1, 1)
-    gtk_grid_attach(grid!!.reinterpret(), progressBar, 0, 2, 1, 1)
-    gtk_grid_attach(grid!!.reinterpret(), btStart, 0, 3, 1, 1)
-
-
-
-    val curl = CUrl("https://www.metaweather.com/api/location/search/?query=Ahmedabad").close
-    curl?.parseJson()
-
-
-
-
-
-    gtk_container_add (window.reinterpret(), grid)
-
-
-    g_signal_connect(btStart!!.reinterpret<GtkWidget>(), "clicked", staticCFunction(::startThread), progressBar)
-
-    gtk_widget_show (grid)
-    gtk_widget_show (window);
-
-    gtk_widget_show_all (window);
+//
+//
+//    val window = gtk_application_window_new (app)!!
+//    gtk_window_set_title (window.reinterpret(), "Window");
+//    gtk_window_set_default_size (window.reinterpret(), 200, 200);
+//    //gtk_window_set_icon(window.reinterpret(), "/org/gtk/example/icon.png", null)
+//
+//
+//    val grid = gtk_grid_new()
+//
+//    val image = gtk_image_new_from_resource("/org/gtk/example/raw/icon.png")
+//    btStart = gtk_button_new_with_label("Start")
+//    label = gtk_label_new("City Name")
+//    progressBar = gtk_progress_bar_new()
+//
+//    gtk_grid_attach(grid!!.reinterpret(), image, 0, 0, 1, 1)
+//    gtk_grid_attach(grid.reinterpret(), label, 0, 1, 1, 1)
+//    gtk_grid_attach(grid.reinterpret(), progressBar, 0, 2, 1, 1)
+//    gtk_grid_attach(grid.reinterpret(), btStart, 0, 3, 1, 1)
+//
+//
+//
+//    val curl = CUrl("https://www.metaweather.com/api/location/search/?query=Ahmedabad").close
+//    curl?.parseJson()
+//
+//
+//    gtk_container_add (window.reinterpret(), grid)
+//
+//
+//    g_signal_connect(btStart!!.reinterpret<GtkWidget>(), "clicked", staticCFunction(::startThread), progressBar)
+//
+//    gtk_widget_show (grid)
+//    gtk_widget_show (window);
+//
+//    gtk_widget_show_all (window);
 }
+
+
 
 fun gtkMain(args: Array<String>): Int {
     val app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE)!!
+
+    val gtkBuilder = gtk_builder_new()
+    gtk_builder_set_application(gtkBuilder, app)
+    gtk_builder_add_from_resource(gtkBuilder, "/org/gtk/example/layout/main.ui", null)
+
     g_signal_connect(app, "activate", staticCFunction(::activate))
     val status = memScoped {
         g_application_run(app.reinterpret(),
             args.size, args.map { it.cstr.getPointer(memScope) }.toCValues())
     }
+
+    gtk_main()
     g_object_unref(app)
+
     return status
 }
+
+
 
 
 
 fun main(args: Array<String>) {
     glibresources_get_resource()
     //main2(args)
+
+    memScoped {
+        val argc = alloc<IntVar>()
+        argc.value = args.size
+        val argv = alloc<CPointerVar<CPointerVar<ByteVar>>>()
+        argv.value = args.map { it.cstr.ptr }.toCValues().ptr
+        gtk_init(argc.ptr, argv.ptr)
+    }
+
     gtkMain(args)
 }
 
@@ -203,13 +227,10 @@ fun String.readDetailedInfo() {
 
     val weater_data = consolidated_weather?.getObject(0)
 
-
-
-
-    val main_temp = weater_data?.getString("main_temp").toLong()
-    val weather_state_name = weater_data?.getString("weather_state_name")?.toKString()
-    val wind_speed = weater_data?.getString("wind_speed")?.toKString()
-    val humidity = weater_data?.getString("humidity")?.toKString()
+    val main_temp = weater_data?.getDouble("the_temp")
+    val weather_state_name = weater_data?.getString("weather_state_name").toString()
+    val wind_speed = weater_data?.getDouble("wind_speed")
+    val humidity = weater_data?.getDouble("humidity")
 
 
     println("$main_temp , $weather_state_name, $wind_speed, $humidity")

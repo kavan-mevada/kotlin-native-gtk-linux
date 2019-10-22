@@ -26,7 +26,7 @@ fun CPointer<JsonArray>.getArray(index: Int) = json_array_get_array_element(this
 fun CPointer<JsonObject>.getObject(key: String) = json_object_get_object_member(this, key)
 fun CPointer<JsonObject>.getArray(key: String) = json_object_get_array_member(this, key)
 
-fun CPointer<JsonObject>.getInt(key: String) = json_object_get_int_member(this, key)
-fun CPointer<JsonObject>.getDouble(key: String) = json_object_get_double_member(this, key)
-fun CPointer<JsonObject>.getString(key: String) = json_object_get_string_member(this, key)
-fun CPointer<JsonObject>.getBoolean(key: String) = json_object_get_boolean_member(this, key)
+fun CPointer<JsonObject>.getInt(key: String) = json_object_get_int_member(this, key).toInt()
+fun CPointer<JsonObject>.getDouble(key: String) = json_object_get_double_member(this, key).toDouble()
+fun CPointer<JsonObject>.getString(key: String) = json_object_get_string_member(this, key)?.toKStringFromUtf8()
+fun CPointer<JsonObject>.getBoolean(key: String) = json_object_get_boolean_member(this, key) == TRUE

@@ -94,17 +94,34 @@ build {
     ext.outputFile = file("$buildDir/g_resources/glibresources.gresource.xml")
     outputFile.text = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
     outputFile.text += "\n<gresources>"
-    outputFile.text += "\n  <gresource prefix=\"/org/gtk/example\">"
-    kotlin.sourceSets.linuxMain.resources.srcDirs.each {
-        file(it).eachFile { file ->
+
+
+    kotlin.sourceSets.linuxMain.resources.srcDirs.each { src ->
+
+        outputFile.text += "\n  <gresource prefix=\"/org/gtk/example\">"
+        fileTree("${src.path}/layout").filter { it.name.endsWith('.ui') }.files.each { file ->
+            outputFile.text += "\n    <file>layout/${file.name}</file>"
+
             copy {
                 from file.path
-                into "$buildDir/g_resources"
+                into "$buildDir/g_resources/layout"
             }
-            outputFile.text += "\n    <file>${file.name}</file>"
         }
+        outputFile.text += "\n  </gresource>"
+
+
+        outputFile.text += "\n  <gresource prefix=\"/org/gtk/example/\">"
+        fileTree("${src.path}/raw").filter { it.isFile() }.files.each { file ->
+            outputFile.text += "\n    <file>raw/${file.name}</file>"
+
+            copy {
+                from file.path
+                into "$buildDir/g_resources/raw"
+            }
+        }
+        outputFile.text += "\n  </gresource>"
     }
-    outputFile.text += "\n  </gresource>"
+
     outputFile.text += "\n</gresources>"
 
 
@@ -146,6 +163,8 @@ build {
     genrateDef.text += "\nstaticLibraries = glibresources.a"
     genrateDef.text += "\nlibraryPaths = $buildDir/g_resources"
 }
+
+runReleaseExecutableLinux.dependsOn cinteropGlibresourcesLinux
 
 
 

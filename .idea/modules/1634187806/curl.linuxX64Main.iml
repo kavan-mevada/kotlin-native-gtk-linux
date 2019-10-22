@@ -28,11 +28,11 @@
     <content url="file:///run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxX64Main" />
     <orderEntry type="jdk" jdkName="Kotlin SDK" jdkType="KotlinSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - zlib [linux_x64]" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - posix [linux_x64]" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - linux [linux_x64]" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - stdlib" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - iconv [linux_x64]" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - builtin [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - iconv [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - posix [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - stdlib" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - linux [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - zlib [linux_x64]" level="project" />
   </component>
 </module>

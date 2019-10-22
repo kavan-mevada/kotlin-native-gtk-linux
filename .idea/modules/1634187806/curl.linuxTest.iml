@@ -33,6 +33,20 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:atomicfu-linux64:klib:0.13.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:klib:1.3.2" level="project" />
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/build/classes/kotlin/linux/main/curl-cinterop-libgtk3.klib!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="curl.linuxMain" scope="TEST" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - posix [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - builtin [linux_x64]" level="project" />
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
@@ -60,24 +74,10 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - zlib [linux_x64]" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - posix [linux_x64]" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - linux [linux_x64]" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - iconv [linux_x64]" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - stdlib" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - builtin [linux_x64]" level="project" />
-    <orderEntry type="module-library" scope="TEST">
-      <library>
-        <CLASSES>
-          <root url="jar:///run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/build/classes/kotlin/linux/main/curl-cinterop-libgtk3.klib!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:klib:1.3.2" level="project" />
-    <orderEntry type="module" module-name="curl.linuxMain" scope="TEST" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - iconv [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - zlib [linux_x64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.3.50 - linux [linux_x64]" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="curl.linuxMain" />
 </module>

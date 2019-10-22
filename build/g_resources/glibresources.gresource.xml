@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gtk/example">
-    <file>icon.png</file>
-    <file>GTK.png</file>
+    <file>layout/main.ui</file>
+    <file>layout/window.ui</file>
+  </gresource>
+  <gresource prefix="/org/gtk/example/">
+    <file>raw/GTK.png</file>
+    <file>raw/icon.png</file>
+    <file>raw/partly_cloudy.png</file>
+    <file>raw/rain.png</file>
+    <file>raw/rain_light.png</file>
+    <file>raw/rain_s_cloudy.png</file>
+    <file>raw/cloudy.png</file>
+    <file>raw/sunny.png</file>
   </gresource>
 </gresources>
