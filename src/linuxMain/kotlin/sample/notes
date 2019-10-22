@@ -1,0 +1,36 @@
+val weatherData = StringBuilder()
+
+class CUrl(url: String) {
+
+    private val stableRef = StableRef.create(this)
+
+    val body = Event<String?>()
+
+    val kavan = staticCFunction {
+            buffer: CPointer<ByteVar>?, size: size_t, nitems: size_t, userdata: COpaquePointer? ->
+
+        return@staticCFunction if (userdata != null) {
+            val data = buffer?.readBytes((size * nitems).toInt())?.toKString()?.trim()
+            val clazz = userdata.asStableRef<CUrl>().get()
+            clazz.body(data)
+            //println(clazz)
+            weatherData.append(data)
+            size * nitems
+        } else 0u
+    }
+
+    val curl = curl_easy_init()
+
+    init {
+        curl_easy_setopt(curl, CURLOPT_URL, url)
+        curl_easy_setopt(curl, CURLOPT_USERAGENT, "Dark Secret Ninja/1.0")
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, kavan)
+        curl_easy_setopt(curl, CURLOPT_HEADERDATA, stableRef.asCPointer())
+        curl_easy_perform(curl)
+
+        /* always cleanup */
+        curl_easy_cleanup(curl)
+        curl_global_cleanup()
+        stableRef.dispose()
+    }
+}

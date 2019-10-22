@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e9e55fc-d341-4185-9778-7901cfee5406" name="Default Changelist" comment="" />
+    <list default="true" id="5f64ba57-3911-495c-b4c3-32129a64fa55" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +19,6 @@
         <task path="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl">
           <activation />
         </task>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -32,7 +29,13 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="curl" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="curl" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="run" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -41,28 +44,9 @@
       </state>
     </system>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="curl" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Kotlin Class" />
-        <option value="Kotlin File" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectId" id="1SFJKcKEzfWoO9bsfCQ1hYinTGP" />
+  <component name="ProjectId" id="1SW0HsmoG0uIbZd27BGcxquUmoZ" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/resources" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/resources" />
-      <recent name="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/kotlin/sample/gtk" />
-      <recent name="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/kotlin/sample" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -76,83 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [runDebugExecutableLinux]">
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [linuxTestKlibrary]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="linuxTestKlibrary" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [linuxX64Test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="linuxX64Test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [runDebugExecutableLinux]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -175,10 +83,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [runDebugExecutableLinux]" />
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [clean]" />
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [build]" />
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [linuxTestKlibrary]" />
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [linuxX64Test]" />
       </list>
     </recent_temporary>
   </component>
@@ -187,11 +91,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5e9e55fc-d341-4185-9778-7901cfee5406" name="Default Changelist" comment="" />
-      <created>1571153347766</created>
+      <changelist id="5f64ba57-3911-495c-b4c3-32129a64fa55" name="Default Changelist" comment="" />
+      <created>1571662991678</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571153347766</updated>
+      <updated>1571662991678</updated>
     </task>
     <servers />
   </component>
