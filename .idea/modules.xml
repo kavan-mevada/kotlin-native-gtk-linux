@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxMain.iml" filepath="$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxMain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxTest.iml" filepath="$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxX64Main.iml" filepath="$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxX64Main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxX64Test.iml" filepath="$PROJECT_DIR$/.idea/modules/1634187806/curl.linuxX64Test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1634187806/work-projects.curl.iml" filepath="$PROJECT_DIR$/.idea/modules/1634187806/work-projects.curl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/weather.iml" filepath="$PROJECT_DIR$/.idea/weather.iml" />
     </modules>
   </component>
 </project>

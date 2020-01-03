@@ -186,11 +186,9 @@
     <property name="valign">start</property>
     <property name="border_width">8</property>
     <property name="title" translatable="yes">Add Location</property>
-    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
-    <property name="deletable">False</property>
     <property name="attached_to">window</property>
     <child>
       <placeholder/>

@@ -1,56 +1,15 @@
 plugins {
-    id "org.jetbrains.kotlin.multiplatform" version "1.3.50"
+    id 'org.jetbrains.kotlin.multiplatform' version '1.3.50'
 }
-
-ext.applicationName = "kavanmevada"
-ext.applicationId = "org.gtk.$applicationName"
-
 repositories {
     mavenCentral()
 }
-
 kotlin {
-
     // For ARM, should be changed to iosArm32 or iosArm64
     // For Linux, should be changed to e.g. linuxX64
     // For MacOS, should be changed to e.g. macosX64
     // For Windows, should be changed to e.g. mingwX64
     linuxX64("linux") {
-
-        compilations.main.cinterops {
-            libgtk3 {
-                ['/opt/local/include',
-                 '/usr/include',
-                 '/usr/local/include',
-                ].each {
-                    includeDirs "$it/atk-1.0",
-                            "$it/gdk-pixbuf-2.0",
-                            "$it/cairo",
-                            "$it/pango-1.0",
-                            "$it/harfbuzz",
-                            "$it/gtk-3.0",
-                            "$it/glib-2.0", "$it"
-                }
-
-                includeDirs '/opt/local/lib/glib-2.0/include',
-                        '/usr/lib/x86_64-linux-gnu/glib-2.0/include',
-                        '/usr/local/lib/glib-2.0/include'
-            }
-
-            glibresources {
-                includeDirs "$buildDir/g_resources", "/usr/include/glib-2.0", "/usr/lib64/glib-2.0/include"
-            }
-
-            libcurl {
-                includeDirs "/usr/include/"
-            }
-
-            glibjson {
-                includeDirs "/usr/include/json-glib-1.0", "/usr/include/glib-2.0", "/usr/lib64/glib-2.0/include"
-            }
-
-        }
-
         binaries {
             executable {
                 // Change to specify fully qualified name of your application's entry point:
@@ -59,33 +18,20 @@ kotlin {
                 runTask?.args('')
             }
         }
-
-
     }
-
-
     sourceSets {
+        // Note: To enable common source sets please comment out 'kotlin.import.noCommonSourceSets' property
+        // in gradle.properties file and re-import your project in IDE.
         linuxMain {
-
-            resources.exclude '**/*'
-            dependencies {
-                //implementation fileTree(include: ['*.klib'], dir: 'libs')
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.2'
-                //implementation "io.ktor:ktor-client-curl-linuxx64:1.2.3"
-            }
         }
-
-        // And do the same for the other target:
-        linuxX64().compilations.main.defaultSourceSet {
-            dependsOn commonMain
+        linuxTest {
         }
     }
-
 }
 
-
-
-
+// Use the following Gradle tasks to run your application:
+// :runReleaseExecutableLinux - without debug symbols
+// :runDebugExecutableLinux - with debug symbols
 
 build {
 
@@ -95,6 +41,16 @@ build {
     outputFile.text = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
     outputFile.text += "\n<gresources>"
 
+
+    //kotlin.linuxX64("linux").compilations.main.freeCompilerArgs = mutableListOf("-include-binary", "$buildDir/libui.a")
+
+
+    
+    kotlin.linuxX64("linux").compilations.main {
+        cinterops {
+            libgtk3
+        }
+    }
 
     kotlin.sourceSets.linuxMain.resources.srcDirs.each { src ->
 
@@ -126,7 +82,6 @@ build {
 
 
 
-    exec { executable 'echo' args 'Helloworld' }
 
     exec {
         workingDir "$buildDir/g_resources"
@@ -155,19 +110,4 @@ build {
         workingDir "$buildDir/g_resources"
         executable 'ar' args 'rcs', 'glibresources.a', 'glibresources.o'
     }
-
-
-    //println kotlin.sourceSets.linuxMain.kotlin.srcDirs
-    ext.genrateDef = file("src/nativeInterop/cinterop/glibresources.def")
-    genrateDef.text = "headers = glibresources.h"
-    genrateDef.text += "\nstaticLibraries = glibresources.a"
-    genrateDef.text += "\nlibraryPaths = $buildDir/g_resources"
 }
-
-runReleaseExecutableLinux.dependsOn cinteropGlibresourcesLinux
-
-
-
-// Use the following Gradle tasks to run your application:
-// :runReleaseExecutableLinux - without debug symbols
-// :runDebugExecutableLinux - with debug symbols

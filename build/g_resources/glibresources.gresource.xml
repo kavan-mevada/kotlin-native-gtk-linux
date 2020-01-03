@@ -2,16 +2,17 @@
 <gresources>
   <gresource prefix="/org/gtk/example">
     <file>layout/main.ui</file>
-    <file>layout/window.ui</file>
+    <file>layout/menu.ui</file>
   </gresource>
   <gresource prefix="/org/gtk/example/">
-    <file>raw/GTK.png</file>
-    <file>raw/icon.png</file>
     <file>raw/partly_cloudy.png</file>
     <file>raw/rain.png</file>
     <file>raw/rain_light.png</file>
-    <file>raw/rain_s_cloudy.png</file>
     <file>raw/cloudy.png</file>
     <file>raw/sunny.png</file>
+    <file>raw/snow.png</file>
+    <file>raw/thunderstorms.png</file>
+    <file>raw/rain_s_sunny.png</file>
+    <file>raw/sleet.png</file>
   </gresource>
 </gresources>

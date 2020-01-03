@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f64ba57-3911-495c-b4c3-32129a64fa55" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="f1857ff0-993f-49bd-a79a-638c681c8e6d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/CUrl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/CUrl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/GtkHelpers/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/GtkHelpers/Application.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/GtkThreads.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/GtkThreads.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/SampleLinux.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/linuxMain/kotlin/sample/SampleLinux.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linuxMain/resources/layout/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/linuxMain/resources/layout/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nativeInterop/cInterop/libgtk3.def" beforeDir="false" afterPath="$PROJECT_DIR$/src/nativeInterop/cInterop/libgtk3.def" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +22,7 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl">
+        <task path="/run/media/kavan/67A4-0823/kotlin-native/work-projects/weather">
           <activation />
         </task>
         <projects_view>
@@ -24,11 +30,11 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="curl" type="f1a62948:ProjectNode" />
+                <item name="weather" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="curl" type="f1a62948:ProjectNode" />
+                <item name="weather" type="f1a62948:ProjectNode" />
                 <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
@@ -41,39 +47,38 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="XSLT Stylesheet" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1SW0HsmoG0uIbZd27BGcxquUmoZ" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1T3qPEgUMB9ABX22S8SrMEz4Zfa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/resources/layout" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../num" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl/src/linuxMain/resources/layout" />
+      <recent name="/run/media/kavan/67A4-0823/kotlin-native/work-projects/weather/src/linuxMain/kotlin/sample" />
+      <recent name="/run/media/kavan/67A4-0823/kotlin-native/work-projects/weather/src/nativeInterop/cInterop" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [runDebugExecutableLinux]">
-    <configuration name="curl [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.runDebugExecutableLinux">
+    <configuration name="build" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/weather" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -82,36 +87,17 @@
             <option value="build" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="clean" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
+        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/weather" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -120,17 +106,17 @@
             <option value="clean" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [runDebugExecutableLinux]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="runDebugExecutableLinux" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/curl" />
+        <option name="externalProjectPath" value="/run/media/kavan/67A4-0823/kotlin-native/work-projects/weather" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--info --stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -139,31 +125,65 @@
             <option value="runDebugExecutableLinux" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Gradle.build" />
+      <item itemvalue="Gradle.clean" />
+      <item itemvalue="Gradle.runDebugExecutableLinux" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [runDebugExecutableLinux]" />
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [build]" />
-        <item itemvalue="Gradle.curl::run:media:kavan:67A4-0823:kotlin-native:work-projects:curl [clean]" />
-        <item itemvalue="Gradle.curl [build]" />
+        <item itemvalue="Gradle.runDebugExecutableLinux" />
+        <item itemvalue="Gradle.build" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5f64ba57-3911-495c-b4c3-32129a64fa55" name="Default Changelist" comment="" />
-      <created>1571662991678</created>
+      <changelist id="f1857ff0-993f-49bd-a79a-638c681c8e6d" name="Default Changelist" comment="" />
+      <created>1572699100434</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1571662991678</updated>
+      <updated>1572699100434</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="744" y="275" width="424" height="491" key="FileChooserDialogImpl" timestamp="1575045756790">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="744" y="275" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1575045756790" />
   </component>
 </project>
